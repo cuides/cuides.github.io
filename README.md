@@ -7,6 +7,7 @@ git init
 git remote add origin git@github.com:cuides/cuides.github.io.git
 
 
+
 ```
 
 ### ✅ 1. Instala dependencias necesarias
