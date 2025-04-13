@@ -1,0 +1,8 @@
+from fastapi import APIRouter
+router = APIRouter()
+from .Bt040401InstalaciónEléctricaDeViviendaUnifamiliarConGradoDeElectrificaciónBásico import router as Bt040401InstalaciónEléctricaDeViviendaUnifamiliarConGradoDeElectrificaciónBásico_router
+router.include_router(Bt040401InstalaciónEléctricaDeViviendaUnifamiliarConGradoDeElectrificaciónBásico_router, prefix='/Bt040401InstalaciónEléctricaDeViviendaUnifamiliarConGradoDeElectrificaciónBásico', tags=['root - INSTALACIONES_ELÉCTRICAS_BT - RBT0_Memoria_Técnica_De_Diseño'])
+from .img import router as img_router
+router.include_router(img_router, prefix='/img', tags=['root - INSTALACIONES_ELÉCTRICAS_BT - RBT0_Memoria_Técnica_De_Diseño'])
+from .Bt040402InstalaciónEléctricaDeViviendaUnifamiliarConGradoDeElectrificaciónElevado import router as Bt040402InstalaciónEléctricaDeViviendaUnifamiliarConGradoDeElectrificaciónElevado_router
+router.include_router(Bt040402InstalaciónEléctricaDeViviendaUnifamiliarConGradoDeElectrificaciónElevado_router, prefix='/Bt040402InstalaciónEléctricaDeViviendaUnifamiliarConGradoDeElectrificaciónElevado', tags=['root - INSTALACIONES_ELÉCTRICAS_BT - RBT0_Memoria_Técnica_De_Diseño'])

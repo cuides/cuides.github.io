@@ -1,0 +1,4 @@
+from fastapi import APIRouter
+router = APIRouter()
+from .AnexoianexoIDeclaraciónResponsableFormalizadaPorEl import router as AnexoianexoIDeclaraciónResponsableFormalizadaPorEl_router
+router.include_router(AnexoianexoIDeclaraciónResponsableFormalizadaPorEl_router, prefix='/AnexoianexoIDeclaraciónResponsableFormalizadaPorEl', tags=['root - CERTIFICADOS_DE_AHORRO_ENERGÉTICO_CAE - Pobreza_Energética'])

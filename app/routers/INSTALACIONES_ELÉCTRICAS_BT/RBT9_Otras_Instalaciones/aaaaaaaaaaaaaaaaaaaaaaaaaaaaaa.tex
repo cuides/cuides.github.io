@@ -1,0 +1,511 @@
+
+
+
+\documentclass[a4paper,10pt]{article}
+%\documentclass[a4paper,10pt,twocolumn]{article}
+\usepackage[top = 2cm, bottom = 2cm, left = 2cm, right = 2cm, asymmetric]{geometry} % Especificar los márgenes según la norma
+\usepackage[spanish]{babel}    
+
+\usepackage{graphicx}  % Para incluir imágenes si es necesario
+\usepackage{amsmath, amssymb}  % Para expresiones matemáticas
+\usepackage{fancyhdr}  % Para personalizar encabezados
+\usepackage{chngcntr}  % Para cambiar la numeración de apartados y subsecciones
+\usepackage{tocbibind}  % Para incluir bibliografía en la tabla de contenidos
+\usepackage{appendix}  % Para el formato de anexos
+\usepackage{lipsum}  % Para generar texto de relleno (dummy text)
+\usepackage{geometry}  % Para personalizar los márgenes
+\usepackage{multicol}  % Para columnas
+\usepackage{titlesec}  % Para personalizar los títulos de las secciones
+\usepackage[utf8]{inputenc}    
+\usepackage[T1]{fontenc}       
+\usepackage[pdftex,pdfencoding=auto, colorlinks=true, linkcolor=black, citecolor=black, filecolor=black, urlcolor=black]{hyperref}
+\usepackage{tocloft}           
+\usepackage{booktabs}          % Tablas profesionales
+\usepackage{float} % Paquete necesario para usar la opción [H]
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{circuitikz}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{siunitx}
+
+
+
+\usepackage{qrcode}            % Paquete para generar QR
+\usepackage{tabularx} % Agregar en el preámbulo
+\usepackage[absolute,overlay]{textpos} % Para posicionar objetos libremente
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{FILTRO DE ARMÓNICOS}  % Nombre del documento en el encabezado izquierdo
+\fancyhead[C]{}  % Centro vacío
+\fancyhead[R]{\thepage}  % Numeración de páginas en el encabezado derecho
+% \renewcommand{\thepage}{\arabic{page}}  % Asegura la numeración de páginas en números arábigos
+
+% Definición de los anexos
+\newcommand{\annex}[1]{\section{Anexo #1} \addcontentsline{toc}{section}{Anexo #1}}
+\addto\captionsspanish{%
+  \renewcommand{\tablename}{Tabla}%
+  \renewcommand{\listtablename}{Índice de tablas}%
+}
+\title{{\small Ref.:\uppercase{Btx040}}\\{\textbf{FILTRO DE ARMÓNICOS}}}
+
+\author{
+    \begin{minipage}{0.35\textwidth}
+    \centering
+    %\\
+    % \\
+    %\\
+    %\\
+    %\\
+    \end{minipage}%
+    \hfill
+    \begin{minipage}{0.35\textwidth}
+    \centering
+    %\\
+    % \\
+    %\\
+    %\\
+    %\\    
+    \end{minipage}%
+    \hfill
+    \begin{minipage}{0.35\textwidth}
+    \centering
+    %\\
+    % \\
+    %\\
+    %\\
+    %\\    
+    \end{minipage}%
+}
+
+\date{\today}
+\newcommand{\MostrarVariablesAlFinal}{}
+
+
+\begin{document}
+\begin{Form}
+
+	% Mostrar el título
+	\maketitle
+	% \onecolumn
+
+	\begin{abstract}
+
+En este documento se ha realizado un análisis completo de un sistema eléctrico con presencia de armónicos. A partir de los datos proporcionados, se calculó la corriente fundamental (\(I_1 \approx \SI{160}{A}\)) y el THD de corriente (\(\text{THD}_i \approx 32.8\%\)), evidenciando una distorsión significativa debido a los armónicos de orden 3 y 9. Además, se comparó el coseno de phi (\(\cos \phi = 0.853\)) con el factor de potencia (\(FP = 0.811\)), observándose que el FP es menor debido al efecto de los armónicos, los cuales incrementan la corriente eficaz total. Finalmente, se generó una representación gráfica de la señal de corriente, mostrando la distorsión causada por los armónicos. Estos resultados destacan la importancia de implementar medidas de mitigación de armónicos para mejorar la calidad de la energía y el factor de potencia del sistema.
+        	\end{abstract}
+
+	% Iniciar el formato de dos columnas
+
+	% Reemplazamos el entorno IEEEkeywords por una lista de palabras clave
+	\noindent\textbf{Palabras clave:} Potencia activa, Potencia reactiva, Potencia aparente, Corriente fundamental, Armónicos de corriente, THD (Distorsión Armónica Total), Factor de potencia, Coseno de phi (\(\cos \phi\)), Calidad de la energía, Distorsión armónica, Mitigación de armónicos, Análisis de circuitos, Sistemas eléctricos, Corriente eficaz, Frecuencia fundamental, Armónicos de orden 3 y 9
+
+
+	\tableofcontents  % Tabla de contenidos
+	\listoffigures    % Lista de figuras
+	%\listoftables     % Lista de tablas
+
+	\newpage
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Datos iniciales}
+Los datos proporcionados son los siguientes:
+\begin{itemize}
+    \item Tensión (\(U\)): \SI{230}{V}
+    \item Potencia activa (\(P\)): \SI{31.40}{kW}
+    \item Potencia reactiva (\(Q\)): \SI{19.19}{kVAr}
+    \item Armónicos de corriente:
+        \begin{itemize}
+            \item \(f_3 = 20\%\)
+            \item \(f_5 = 0\%\)
+            \item \(f_7 = 0\%\)
+            \item \(f_9 = 26\%\)
+        \end{itemize}
+\end{itemize}
+
+
+
+\section{Cálculo de la corriente fundamental (\(I_1\))}
+La corriente fundamental se calcula a partir de la potencia aparente (\(S\)) y la tensión (\(U\)).
+
+
+
+
+\subsection{Paso 1: Cálculo de la potencia aparente (\(S\))}
+\[
+S = \sqrt{P^2 + Q^2} = \sqrt{(31.40)^2 + (19.19)^2} = \sqrt{985.96 + 368.2561} = \sqrt{1354.2161} \approx \SI{36.80}{kVA}
+\]
+
+\subsection{Paso 2: Cálculo de la corriente aparente (\(I\))}
+\[
+I = \frac{S}{U} = \frac{36.80 \times 10^3}{230} \approx \SI{160}{A}
+\]
+
+\subsection{Paso 3: Corriente fundamental (\(I_1\))}
+La corriente fundamental es aproximadamente igual a la corriente aparente:
+\[
+I_1 \approx \SI{160}{A}
+\]
+
+\section{Cálculo del THD de corriente}
+El THD de corriente se calcula como:
+\[
+\text{THD}_i = \frac{\sqrt{I_3^2 + I_5^2 + I_7^2 + I_9^2}}{I_1} \times 100 \%
+\]
+
+\subsection{Paso 1: Cálculo de las corrientes armónicas}
+\[
+I_3 = I_1 \times \frac{f_3}{100} = 160 \times 0.20 = \SI{32}{A}
+\]
+\[
+I_5 = I_1 \times \frac{f_5}{100} = 160 \times 0 = \SI{0}{A}
+\]
+\[
+I_7 = I_1 \times \frac{f_7}{100} = 160 \times 0 = \SI{0}{A}
+\]
+\[
+I_9 = I_1 \times \frac{f_9}{100} = 160 \times 0.26 = \SI{41.6}{A}
+\]
+
+\subsection{Paso 2: Cálculo del THD de corriente}
+\[
+\text{THD}_i = \frac{\sqrt{32^2 + 0^2 + 0^2 + 41.6^2}}{160} \times 100 \% = \frac{\sqrt{1024 + 0 + 0 + 1730.56}}{160} \times 100 \% 
+\]
+\[
+\text{THD}_i = \frac{\sqrt{2754.56}}{160} \times 100 \% = \frac{52.48}{160} \times 100 \% \approx 32.8 \%
+\]
+
+\begin{figure}[H]
+                
+                \includegraphics[width=.985\textwidth]{/tmp/tmp683gooao.png}
+                \caption{Señal de corriente con armónicos}
+                
+                \label{fig:dfassssdfsa}
+                \end{figure}
+                
+
+
+\section{Cálculo y comparación del coseno de phi (\(\cos \phi\)) y el factor de potencia (FP)}
+
+\subsection{Cálculo del coseno de phi (\(\cos \phi\))}
+\[
+\cos \phi = \frac{P}{S} = \frac{31.40}{36.80} = 0.853
+\]
+
+\subsection{Cálculo del factor de potencia (FP)}
+El factor de potencia se calcula como:
+\[
+FP = \frac{P}{U \cdot I_{\text{ef}}}
+\]
+
+\subsubsection{Paso 1: Cálculo de la corriente eficaz total (\(I_{\text{ef}}\))}
+\[
+I_{\text{ef}} = \sqrt{I_1^2 + I_3^2 + I_5^2 + I_7^2 + I_9^2} = \sqrt{160^2 + 32^2 + 0^2 + 0^2 + 41.6^2}
+\]
+\[
+I_{\text{ef}} = \sqrt{25600 + 1024 + 0 + 0 + 1730.56} = \sqrt{28354.56} \approx \SI{168.4}{A}
+\]
+
+
+\subsubsection{Paso 2: Cálculo del factor de potencia (FP)}
+\[
+FP = \frac{31400}{230 \times 168.4} = \frac{31400}{38732} \approx 0.811
+\]
+
+\subsection{Comparación y análisis}
+\begin{itemize}
+    \item \(\cos \phi = 0.853\)
+    \item \(FP = 0.811\)
+\end{itemize}
+
+El factor de potencia (FP) es menor que el \(\cos \phi\) debido a la presencia de armónicos, que aumentan la corriente eficaz total y reducen el factor de potencia. La distorsión armónica (THD del 32.8\%) justifica esta diferencia.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Dimensionado del ﬁltro activo necesario. }
+
+\subsection{Datos proporcionados}
+Los datos iniciales para el dimensionamiento del filtro activo son los siguientes:
+\begin{itemize}
+    \item THDv (Tasa de Distorsión Armónica de Tensión): \SI{2.6}{\%}
+    \item THDi (Tasa de Distorsión Armónica de Corriente): \SI{32.8}{\%}
+    \item Corriente fundamental (\(I_1\)): \SI{160}{A}
+    \item Armónicos significativos:
+        \begin{itemize}
+            \item 3er armónico: \SI{20}{\%}
+            \item 9no armónico: \SI{26}{\%}
+        \end{itemize}
+\end{itemize}
+
+\subsection{Cálculo de la corriente armónica total a compensar}
+La corriente armónica total (\(I_{\text{arm}}\)) se calcula a partir del THDi y la corriente fundamental:
+\[
+I_{\text{arm}} = I_1 \times \frac{\text{THDi}}{100} = 160 \times \frac{32.8}{100} = \SI{52.48}{A}
+\]
+
+\subsection{Selección del filtro activo}
+Para asegurar un correcto funcionamiento, se añade un margen de seguridad del 30\% a la corriente armónica:
+\[
+I_{\text{filtro}} = I_{\text{arm}} \times 1.3 = 52.48 \times 1.3 \approx \SI{68.22}{A}
+\]
+
+\subsection{Modelo recomendado}
+Según el catálogo de \textbf{Circutor}, se recomienda utilizar un filtro activo con una capacidad de \SI{75}{A} o superior. Algunos modelos adecuados son:
+\begin{itemize}
+    \item \textbf{Circutor AFQevo}: Disponible en capacidades de \SI{30}{A}, \SI{50}{A}, \SI{75}{A}, \SI{100}{A}, etc.
+    \item \textbf{Circutor AFQmini}: Para aplicaciones más pequeñas, pero en este caso no sería suficiente.
+\end{itemize}
+
+\subsection{Consideraciones adicionales}
+\begin{itemize}
+    \item El valor de THDv (\SI{2.6}{\%}) está dentro de los límites aceptables según la norma \textbf{IEEE 519} (THDv < \SI{5}{\%} para sistemas de baja tensión).
+    \item El filtro activo debe estar configurado para mitigar específicamente los armónicos de orden 3 y 9.
+    \item Además de reducir los armónicos, el filtro activo mejorará el factor de potencia, acercándolo a 1.
+\end{itemize}
+
+\subsection{Recomendación final}
+Se recomienda instalar un \textbf{filtro activo Circutor AFQevo de \SI{75}{A}}, ya que:
+\begin{itemize}
+    \item Cubre la corriente armónica a compensar (\SI{52.48}{A}) con un margen de seguridad.
+    \item Es capaz de mitigar los armónicos de orden 3 y 9.
+    \item Mejora el factor de potencia y reduce el THDi a valores aceptables.
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Modelo de ﬁltro activo de la “Serie AFQm” de la casa Circutor, para
+una instalación trifásica con neutro, si se considera que la fase analizada es la
+que ene un mayor THDi y una mayor corriente fundamental, y los valores
+considerados, son los más desfavorables alcanzados de forma habitual para el
+periodo analizado.}
+\subsection{Datos de la fase analizada}
+Los valores más desfavorables obtenidos durante el periodo analizado (7 días) son:
+\begin{itemize}
+    \item THDi (Tasa de Distorsión Armónica de Corriente): \SI{32.8}{\%}
+    \item Corriente fundamental (\(I_1\)): \SI{160}{A}
+    \item Armónicos significativos:
+        \begin{itemize}
+            \item 3er armónico: \SI{20}{\%}
+            \item 9no armónico: \SI{26}{\%}
+        \end{itemize}
+\end{itemize}
+
+\subsection{Cálculo de la corriente armónica total a compensar}
+La corriente armónica total (\(I_{\text{arm}}\)) se calcula como:
+\[
+I_{\text{arm}} = I_1 \times \frac{\text{THDi}}{100} = 160 \times \frac{32.8}{100} = \SI{52.48}{A}
+\]
+
+\subsection{Margen de seguridad}
+Se añade un margen de seguridad del 30\%:
+\[
+I_{\text{filtro}} = I_{\text{arm}} \times 1.3 = 52.48 \times 1.3 \approx \SI{68.22}{A}
+\]
+
+\subsection{Selección del modelo de la Serie AFQm}
+El modelo recomendado es el \textbf{Circutor AFQm 100-4/75}:
+\begin{itemize}
+    \item Capacidad nominal: \SI{75}{A}
+    \item Adecuado para sistemas trifásicos con neutro
+    \item Mitiga armónicos de orden 3 y 9
+    \item Mejora el factor de potencia y reduce el THDi
+\end{itemize}
+
+\subsection{Recomendación final}
+Se recomienda instalar un \textbf{filtro activo Circutor AFQm 100-4/75} para esta instalación trifásica con neutro, ya que:
+\begin{itemize}
+    \item Cubre la corriente armónica a compensar (\SI{68.22}{A}) con un margen de seguridad.
+    \item Mitiga los armónicos de orden 3 y 9.
+    \item Mejora la calidad de la energía y el factor de potencia.
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Bibliografía}
+\begin{itemize}
+    \item \href{https://www.ingenierosformacion.com/}{F0JV118LXMT1, Curso 'Diseño avanzado de instalaciones eléctricas de Baja Tensión. COGITI, José Luis Rodríguez' }
+    \item \href{https://circutor.com/soporte/formacion/notebooks/armonicos-electricos/}{CIRCUTOR. Técnicas de compensación y filtrado de perturbaciones armónicas }
+    \item \href{https://circutor.com/articulos/armonicos-electricos-definicion-problematica-soluciones/}{CIRCUTOR. Armónicos eléctricos: definición  problemática  soluciones }
+\end{itemize}
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	% P A R A M E T R O S 
+	%---------------------
+
+	\TextField[name=I0 ,width=0cm]{}
+	\TextField[name=Bt,width=0cm]{}
+
+
+	%==========================================
+
+
+
+
+\end{Form}
+
+\end{document}
+
+

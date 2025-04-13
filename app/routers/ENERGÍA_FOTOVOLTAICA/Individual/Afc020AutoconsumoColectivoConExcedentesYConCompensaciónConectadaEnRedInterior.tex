@@ -1,0 +1,329 @@
+
+
+
+\documentclass[a4paper,10pt,twocolumn]{article}
+\usepackage[top = 2cm, bottom = 2cm, left = 2cm, right = 2cm, asymmetric]{geometry} % Especificar los márgenes según la norma
+\usepackage[spanish]{babel}    
+
+\usepackage{graphicx}  % Para incluir imágenes si es necesario
+\usepackage{amsmath, amssymb}  % Para expresiones matemáticas
+\usepackage{fancyhdr}  % Para personalizar encabezados
+\usepackage{chngcntr}  % Para cambiar la numeración de apartados y subsecciones
+\usepackage{tocbibind}  % Para incluir bibliografía en la tabla de contenidos
+\usepackage{appendix}  % Para el formato de anexos
+\usepackage{lipsum}  % Para generar texto de relleno (dummy text)
+\usepackage{geometry}  % Para personalizar los márgenes
+\usepackage{multicol}  % Para columnas
+\usepackage{titlesec}  % Para personalizar los títulos de las secciones
+\usepackage[utf8]{inputenc}    
+\usepackage[T1]{fontenc}       
+\usepackage[pdftex,pdfencoding=auto, colorlinks=true, linkcolor=black, citecolor=black, filecolor=black, urlcolor=black]{hyperref}
+\usepackage{tocloft}           
+\usepackage{booktabs}          % Tablas profesionales
+\usepackage{float} % Paquete necesario para usar la opción [H]
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{circuitikz}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+
+
+\usepackage{qrcode}            % Paquete para generar QR
+\usepackage{tabularx} % Agregar en el preámbulo
+\usepackage[absolute,overlay]{textpos} % Para posicionar objetos libremente
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{AUTOCONSUMO COLECTIVO CON EXCEDENTES Y CON COMPENSACIÓN CONECTADA EN RED INTERIOR}  % Nombre del documento en el encabezado izquierdo
+\fancyhead[C]{}  % Centro vacío
+\fancyhead[R]{\thepage}  % Numeración de páginas en el encabezado derecho
+% \renewcommand{\thepage}{\arabic{page}}  % Asegura la numeración de páginas en números arábigos
+
+% Definición de los anexos
+\newcommand{\annex}[1]{\section*{Anexo #1} \addcontentsline{toc}{section}{Anexo #1}}
+\addto\captionsspanish{%
+  \renewcommand{\tablename}{Tabla}%
+  \renewcommand{\listtablename}{Índice de tablas}%
+}
+\title{{\small Ref.:\uppercase{Afc020}}\\{\textbf{AUTOCONSUMO COLECTIVO CON EXCEDENTES Y CON COMPENSACIÓN CONECTADA EN RED INTERIOR}}}
+
+\author{
+    \begin{minipage}{0.35\textwidth}
+    \centering
+    Autor\\
+    Juan Pérez García \\
+    Ingeniero\\
+    +34 600 123 456\\
+    juan.perez@example.com\\
+    \end{minipage}%
+    \hfill
+    \begin{minipage}{0.35\textwidth}
+    \centering
+    Promotor\\
+    Empresa Ejemplo S.L. \\
+    %\\
+    +34 622 345 678\\
+    info@empresaejemplo.com\\    
+    \end{minipage}%
+    \hfill
+    \begin{minipage}{0.35\textwidth}
+    \centering
+    %\\
+    % \\
+    %\\
+    %\\
+    %\\    
+    \end{minipage}%
+}
+
+\date{\today}
+\newcommand{\MostrarVariablesAlFinal}{}
+
+
+\begin{document}
+\begin{Form}
+
+	% Mostrar el título
+	\maketitle
+	% \onecolumn
+
+	\begin{abstract}
+		Este es un ejemplo de resumen para un artículo en formato general. Aquí se debe proporcionar una visión general del contenido del artículo.
+	\end{abstract}
+
+	% Iniciar el formato de dos columnas
+
+	% Reemplazamos el entorno IEEEkeywords por una lista de palabras clave
+	\noindent\textbf{Palabras clave:} Ejemplo, LaTeX, Formato General, Documentación, IEEE.
+
+	\tableofcontents  % Tabla de contenidos
+	\listoffigures    % Lista de figuras
+	\listoftables     % Lista de tablas
+
+	\newpage
+
+	% http://localhost:8080/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoBGAXVJADcBDAGwFcYkQAlAERAF9T0mXPkIpyFanSat2AYQDiABT4CQGbHgJEATKWKSGLNohDztKwRpE7S2g9OMhZ5-peFaxe+0fbzyFtSFNUWQAZi8aQxkTeUJXQKsPZHE7SIc5f3j1dxDw1KkfE1k4yRgoAHN4IlAAMwAnCABbJDIQHAgkcnj6ps6adqRQ7obmxF02jsQu1R7RgBZ+yenakaQAVkXO4d6pzcQANm3R8QmkAHZeSl4gA
+	\begin{tikzcd}
+		& GGGG \arrow[d]                         & G2 \arrow[ld] & Gn \arrow[lld] \\
+		RD \arrow[r] & CGP \arrow[rd] \arrow[d] \arrow[rrd] &               &                \\
+		& C1                                   & C2            & Cn
+	\end{tikzcd}
+
+
+
+	
+            \begin{table}[h!]
+                \resizebox{0.45\textwidth}{!}{%
+                \begin{tabular}{p{2.5cm}|lll}
+\toprule
+Energía consumida & kWh & €/kWh & €/mes \\
+\midrule
+PUNTA & 13.50 & 0,074409 & 1.00 \\
+LLANO & 10.50 & 0,028470 & 0.30 \\
+VALLE & 108.00 & 0,003034 & 0.33 \\
+Coste energía & 132.00 & 0,150000 & 19.80 \\
+Compensación excedentes FV & - & - & -14.56 \\
+TOTAL & - & - & 6.87 \\
+\bottomrule
+\end{tabular}
+
+                }
+                \caption{Energía consumida}
+            \end{table}
+            
+
+	
+            \begin{table}[h!]
+                \resizebox{0.45\textwidth}{!}{%
+                \begin{tabular}{p{2.5cm}|lll}
+\toprule
+Potencia contratada & kW & €/kW/año & €/mes \\
+\midrule
+PUNTA & 66.00 & 26,164043 & 10.75 \\
+VALLE & 66.00 & 1,143132 & 0.47 \\
+Margen comercialización fijo & 66.00 & 3,113000 & 1.28 \\
+TOTAL & - & - & 12.50 \\
+TOTAL & - & - & 25.00 \\
+\bottomrule
+\end{tabular}
+
+                }
+                \caption{Potencia}
+            \end{table}
+            
+
+	
+            \begin{table}[h!]
+                \resizebox{0.45\textwidth}{!}{%
+                \begin{tabular}{p{2.5cm}|ll}
+\toprule
+Concepto &   & €/mes \\
+\midrule
+Subtotal &             & 19.37 \\
+Impuesto eléctrico & 0,5\% & 0.10 \\
+Alquiler contador & 30 días & 0.81 \\
+Subtotal &  & 20.28 \\
+IVA  & 5\% & 1.01 \\
+TOTAL FACTURA &  & 21.29 \\
+TOTAL & - & 62.86 \\
+\bottomrule
+\end{tabular}
+
+                }
+                \caption{Total factura}
+            \end{table}
+            
+
+    \begin{figure}[H]
+                
+                \includegraphics[width=.5\textwidth]{/tmp/tmphzkdmo5y.png}
+                \caption{Flujo de Caja y Acumulado}
+                
+                \label{fig:dfassssdfsa}
+                \end{figure}
+                
+
+	% Capítulo 1
+	\section{Introducción}
+	Este es un ejemplo de documento con formato general. En esta sección se explica el objetivo general del documento.
+
+	\subsection{Objetivo}
+	El objetivo de este artículo es mostrar cómo adaptar el formato general para cumplir con normas específicas como la UNE 50135:1996.
+
+	\subsubsection{Descripción del proyecto}
+	\lipsum[1] % Texto de relleno generado con lipsum
+
+	% Capítulo 2
+	\section{Metodología}
+	Aquí se describe la metodología utilizada para alcanzar los objetivos planteados.
+
+
+
+	\subsubsection{Método de análisis}
+	Descripción del método utilizado para el análisis de los datos.
+
+
+	\section{Mecanismo de Compensación Simplificada}
+	El \textbf{Artículo 14} del \textbf{Real Decreto 244/2019} establece el \textbf{Mecanismo de Compensación Simplificada}, que permite a los consumidores con instalaciones de autoconsumo compensar los excedentes de energía eléctrica vertidos a la red con el consumo de energía de la red en períodos posteriores. Este mecanismo es aplicable para instalaciones de hasta 100 kW.
+
+	\subsection{¿Cómo funciona?}
+	El mecanismo permite que la energía excedente inyectada a la red se compense con la energía consumida de la red en la factura eléctrica. La compensación se calcula de la siguiente manera:
+
+	\begin{equation}
+		\text{Compensación} = E_{\text{excedente}} \times P_{\text{compensación}}
+	\end{equation}
+
+	Donde:
+	\begin{itemize}
+		\item \( E_{\text{excedente}} \): Energía excedente vertida a la red (en kWh).
+		\item \( P_{\text{compensación}} \): Precio de compensación acordado con la comercializadora (en €/kWh).
+	\end{itemize}
+
+	La compensación se descuenta del coste total de la energía consumida de la red:
+
+	\begin{equation}
+		\text{Coste total} = E_{\text{consumida}} \times P_{\text{consumo}} - \text{Compensación}
+	\end{equation}
+
+	\subsection{Ejemplo práctico}
+	Supongamos los siguientes datos para un período de facturación:
+	\begin{itemize}
+		\item Energía consumida de la red: \( E_{\text{consumida}} = 500 \, \text{kWh} \).
+		\item Energía excedente vertida a la red: \( E_{\text{excedente}} = 300 \, \text{kWh} \).
+		\item Precio de la energía consumida: \( P_{\text{consumo}} = 0.15 \, \text{€/kWh} \).
+		\item Precio de compensación: \( P_{\text{compensación}} = 0.05 \, \text{€/kWh} \).
+	\end{itemize}
+
+	Aplicando las fórmulas anteriores:
+	\begin{enumerate}
+		\item Calculamos la compensación por excedentes:
+		      \[
+			      \text{Compensación} = 300 \, \text{kWh} \times 0.05 \, \text{€/kWh} = 15 \, \text{€}
+		      \]
+
+		\item Calculamos el coste de la energía consumida:
+		      \[
+			      \text{Coste consumida} = 500 \, \text{kWh} \times 0.15 \, \text{€/kWh} = 75 \, \text{€}
+		      \]
+
+		\item Aplicamos la compensación:
+		      \[
+			      \text{Total a pagar} = 75 \, \text{€} - 15 \, \text{€} = 60 \, \text{€}
+		      \]
+	\end{enumerate}
+
+	\subsection{Consideraciones importantes}
+	\begin{itemize}
+		\item La compensación no puede superar el coste de la energía consumida de la red. Es decir, no se puede obtener un saldo positivo a favor del consumidor.
+		\item Este mecanismo solo es aplicable para instalaciones de autoconsumo con una potencia instalada menor o igual a 100 kW.
+		\item El precio de compensación (\( P_{\text{compensación}} \)) lo fija la comercializadora, pero no puede superar el valor de mercado de la energía.
+	\end{itemize}
+
+	% Capítulo 4
+	\section{Conclusión}
+	Conclusión del artículo con un resumen de los hallazgos más importantes.
+
+	\lipsum[4]  % Texto de relleno
+
+	% Anexos
+	\annex{A}
+	\subsection{Cálculos adicionales}
+	Detalles de los cálculos adicionales realizados en el informe.
+
+	\lipsum[5]  % Texto de relleno para anexos
+
+	\annex{B}
+	\subsection{Datos experimentales}
+	Descripción de los datos experimentales adicionales.
+
+
+
+	% Bibliografía
+	\newpage
+	\begin{thebibliography}{9}
+		\bibitem{une50135}
+		\href
+		{
+			https://www.idae.es/tecnologias/energias-renovables/oficina-de-autoconsumo/guias-tecnicas-sobre-autoconsumo
+		}
+		{
+			Guías técnicas y Formación sobre autoconsumo
+		}
+		, IDAE
+		\bibitem{alarma}
+		\href
+		{
+			https://www.idae.es/publicaciones/guia-profesional-de-tramitacion-del-autoconsumo
+		}
+		{
+			Guía IDAE 021: Guía Profesional de Tramitación del Autoconsumo (edición v.6), D Ejemplos, p159
+		}
+		, IDAE
+
+		\bibitem{normativa}
+		Guía IDAE 026: \href{https://www.idae.es/publicaciones/guia-de-autoconsumo-colectivo}{Guía IDAE 026: Guía de autoconsumo colectivo (versión v.2.1)}. IDAE.
+	\end{thebibliography}
+
+
+
+
+
+
+
+	% P A R A M E T R O S 
+	%---------------------
+
+	\TextField[name=I0 ,width=0cm]{}
+	\TextField[name=Bt,width=0cm]{}
+
+
+	%==========================================
+
+
+
+
+\end{Form}
+
+\end{document}
+
+

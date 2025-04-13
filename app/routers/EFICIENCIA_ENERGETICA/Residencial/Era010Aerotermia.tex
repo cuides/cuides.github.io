@@ -1,0 +1,365 @@
+\documentclass[a4paper,10pt,twocolumn]{article}
+\usepackage[top = 2cm, bottom = 2cm, left = 2cm, right = 2cm, asymmetric]{geometry} % Especificar los márgenes según la norma
+\usepackage[spanish]{babel}    
+
+\usepackage{graphicx}  % Para incluir imágenes si es necesario
+\usepackage{amsmath, amssymb}  % Para expresiones matemáticas
+\usepackage{fancyhdr}  % Para personalizar encabezados
+\usepackage{chngcntr}  % Para cambiar la numeración de apartados y subsecciones
+\usepackage{tocbibind}  % Para incluir bibliografía en la tabla de contenidos
+\usepackage{appendix}  % Para el formato de anexos
+\usepackage{lipsum}  % Para generar texto de relleno (dummy text)
+\usepackage{geometry}  % Para personalizar los márgenes
+\usepackage{multicol}  % Para columnas
+\usepackage{titlesec}  % Para personalizar los títulos de las secciones
+\usepackage[utf8]{inputenc}    
+\usepackage[T1]{fontenc}       
+\usepackage[pdftex,pdfencoding=auto, colorlinks=true, linkcolor=black, citecolor=black, filecolor=black, urlcolor=black]{hyperref}
+\usepackage{tocloft}           
+\usepackage{booktabs}          % Tablas profesionales
+\usepackage{float} % Paquete necesario para usar la opción [H]
+\usepackage{array}
+\usepackage{longtable}
+% 
+
+\usepackage{qrcode}            % Paquete para generar QR
+\usepackage{tabularx} % Agregar en el preámbulo
+\usepackage[absolute,overlay]{textpos} % Para posicionar objetos libremente
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{Nombre del Documento}  % Nombre del documento en el encabezado izquierdo
+\fancyhead[C]{}  % Centro vacío
+\fancyhead[R]{\thepage}  % Numeración de páginas en el encabezado derecho
+% \renewcommand{\thepage}{\arabic{page}}  % Asegura la numeración de páginas en números arábigos
+
+% Definición de los anexos
+\newcommand{\annex}[1]{\section*{Anexo #1} \addcontentsline{toc}{section}{Anexo #1}}
+\addto\captionsspanish{%
+  \renewcommand{\tablename}{Tabla}%
+  \renewcommand{\listtablename}{Índice de tablas}%
+}
+\title{{\small Ref.:\uppercase{ss.codigoDocumento}}\\{\textbf{ss.titulo}}}
+
+\author{
+    \begin{minipage}{0.5\textwidth}
+    \centering
+    ss.iiParticipantesRolP1\\
+    ss.iiParticipantesNombrerazonSocialP1 \\
+    ss.iiParticipantesTitulacionP1\\
+    ss.iiParticipantesTelefonoP1\\
+    ss.iiParticipantesCorreoElectronicoP1\\
+    \end{minipage}%
+    \hfill
+    \begin{minipage}{0.5\textwidth}
+    \centering
+    ss.iiParticipantesRolP2\\
+    ss.iiParticipantesNombrerazonSocialP2 \\
+    ss.iiParticipantesTitulacionP2\\
+    ss.iiParticipantesTelefonoP2\\
+    ss.iiParticipantesCorreoElectronicoP2\\    
+    \end{minipage}%
+}
+
+\date{\today}
+\newcommand{\MostrarVariablesAlFinal}{}
+
+
+\begin{document}
+\begin{Form}
+
+	% Mostrar el título
+	\maketitle
+	% \onecolumn
+
+	\begin{abstract}
+		Este es un ejemplo de resumen para un artículo en formato general. Aquí se debe proporcionar una visión general del contenido del artículo.
+	\end{abstract}
+
+	% Iniciar el formato de dos columnas
+
+	% Reemplazamos el entorno IEEEkeywords por una lista de palabras clave
+	\noindent\textbf{Palabras clave:} Ejemplo, LaTeX, Formato General, Documentación, IEEE.
+
+	\tableofcontents  % Tabla de contenidos
+	\listoffigures    % Lista de figuras
+	\listoftables     % Lista de tablas
+
+    \newpage
+
+	% \newpage  % Para asegurar que la tabla de contenidos esté en una página separada
+
+	% Capítulo 1
+	\section{Introducción}
+	Este es un ejemplo de documento con formato general. En esta sección se explica el objetivo general del documento.
+
+	\subsection{Objetivo}
+	El objetivo de este artículo es mostrar cómo adaptar el formato general para cumplir con normas específicas como la UNE 50135:1996.
+
+	\subsubsection{Descripción del proyecto}
+	\lipsum[1] % Texto de relleno generado con lipsum
+
+	% Capítulo 2
+	\section{Metodología}
+	Aquí se describe la metodología utilizada para alcanzar los objetivos planteados.
+
+	\subsection{Métodos}
+	Descripción detallada de los métodos utilizados en el análisis.
+
+	\subsubsection{Descripción del método A}
+	Explicación sobre el método A y su aplicabilidad.
+
+	\lipsum[2]  % Más texto de relleno
+
+	% Inserción de imagen
+	\begin{figure}[ht]
+		\centering
+		\includegraphics[width=0.6\linewidth]{example-image}  % Aquí coloca la ruta de tu imagen
+		\caption{Descripción de la imagen de ejemplo}
+	\end{figure}
+
+	% Capítulo 3
+	\section{Resultados}
+	Presentación de los resultados obtenidos.
+
+	\subsection{Análisis de resultados}
+	Análisis y discusión de los resultados presentados.
+
+	\lipsum[3]  % Texto de relleno
+
+	\subsubsection{Método de análisis}
+	Descripción del método utilizado para el análisis de los datos.
+
+	% Inserción de imagen
+	\begin{figure}[ht]
+		\centering
+		\includegraphics[width=0.6\linewidth]{example-image}  % Aquí coloca la ruta de tu imagen
+		\caption{Resultados obtenidos}
+	\end{figure}
+
+	% Capítulo 4
+	\section{Conclusión}
+	Conclusión del artículo con un resumen de los hallazgos más importantes.
+
+	\lipsum[4]  % Texto de relleno
+
+	% Anexos
+	\annex{A}
+	\subsection{Cálculos adicionales}
+	Detalles de los cálculos adicionales realizados en el informe.
+
+	\lipsum[5]  % Texto de relleno para anexos
+
+	\annex{B}
+	\subsection{Datos experimentales}
+	Descripción de los datos experimentales adicionales.
+
+
+% Bibliografía
+\newpage
+\begin{thebibliography}{9}
+    \bibitem{une50135}
+    Asociación Española de Normalización (UNE). \textit{Norma UNE 50135: Sistemas de alarma en instalaciones de seguridad}. Ediciones UNE, 2020.
+    
+    \bibitem{alarma}
+    Smith, J. (2019). \textit{Seguridad y sistemas de alarmas: Diseño y mantenimiento}. Madrid: Editorial Seguridad Total.
+    
+    \bibitem{normativa}
+    ISO/IEC. (2021). \textit{Regulaciones internacionales para sistemas de seguridad}. Ginebra: ISO Publications.
+\end{thebibliography}
+
+
+
+	Este informe detalla el diseño y la viabilidad de un sistema híbrido para
+	calefacción y agua caliente sanitaria (ACS) en un edificio residencial
+	en Madrid. El sistema combina una caldera de combustión de gas natural con
+	una bomba de calor de accionamiento eléctrico, con el objetivo de mejorar la
+	eficiencia energética y reducir las emisiones de $CO_2$.
+
+
+	El presente informe técnico tiene como objetivo evaluar la implementación de un sistema híbrido en modo paralelo de caldera de combustión con bomba de calor en un edificio residencial situado en Madrid. Se busca una solución que combine las ventajas de la eficiencia energética de las bombas de calor con la capacidad de soporte de alta demanda de calor de las calderas de gas natural.
+
+	Este sistema permitirá una mayor eficiencia operativa, reduciendo el consumo energético durante los meses más fríos y aprovechando las ventajas de la bomba de calor durante las estaciones intermedias.
+
+	\section{Descripción del Sistema}
+	El sistema híbrido propuesto consta de dos fuentes principales de calor:
+	\begin{itemize}
+		\item \textbf{Caldera de Combustión (Gas Natural)}: Proporciona calor en períodos de alta demanda o cuando la bomba de calor no es eficiente debido a bajas temperaturas exteriores.
+		\item \textbf{Bomba de Calor de Accionamiento Eléctrico}: Funciona de forma eficiente durante las estaciones intermedias o en temperaturas exteriores moderadas, aprovechando el calor ambiental.
+	\end{itemize}
+
+	Ambos sistemas están conectados en paralelo, de forma que cada uno trabaja de acuerdo con la demanda térmica del edificio.
+
+	\section{Datos del Edificio y Demanda Energética}
+	El edificio residencial está ubicado en Madrid, donde las temperaturas invernales suelen oscilar entre los 5ºC y los 10ºC de media. Se han considerado los siguientes parámetros para el cálculo de la demanda térmica:
+
+	\begin{itemize}
+		\item \textbf{Área Total del Edificio}: 1200 m²
+		\item \textbf{Número de Viviendas}: 25
+		\item \textbf{Demanda Térmica Total Estimada}: 150 kW
+		\item \textbf{Temperatura Exterior Media en Invierno}: 6ºC
+		\item \textbf{Temperatura Objetivo Interior}: 21ºC
+	\end{itemize}
+
+	Con base en estos valores, se calculará la capacidad requerida de cada fuente de calor.
+
+	\section{Especificaciones Técnicas}
+	\subsection{Caldera de Gas Natural}
+	La caldera seleccionada es de tipo mural, con una capacidad de 150 kW, adecuada para cubrir la demanda de calefacción en los días más fríos.
+
+	\subsection{Bomba de Calor}
+	La bomba de calor seleccionada tiene una capacidad de 100 kW, adecuada para operar de manera eficiente durante los meses intermedios y proporcionar agua caliente sanitaria. Su coeficiente de rendimiento (COP) es de 4, lo que implica que por cada kWh de electricidad consumida, se generan 4 kWh de calor.
+
+	\section{Análisis Energético}
+	Para realizar un análisis energético, se calculan los posibles ahorros de energía comparando el uso de gas natural con la bomba de calor. En condiciones normales, la bomba de calor tiene una eficiencia mayor, pero en días de temperaturas muy bajas, la caldera de gas natural es más eficiente.
+
+	Se estima que, en promedio, el sistema híbrido puede reducir el consumo de gas natural en un 30\% durante la temporada de calefacción.
+
+	\begin{align*}
+		\text{Ahorro Energético Estimado} =                                                         \\
+		\left( \frac{150 \, \text{kWh} - 100 \, \text{kWh}}{150 \, \text{kWh}} \right) \times 100 = \\
+		\left( \frac{50}{150} \right) \times 100 =                                                  \\
+		33.3\%
+	\end{align*}
+
+	\section{Conclusión}
+	El sistema híbrido propuesto de caldera de combustión y bomba de calor de accionamiento eléctrico en paralelo resulta ser una solución eficiente y respetuosa con el medio ambiente para un edificio residencial en Madrid. La combinación de ambos sistemas permite optimizar la eficiencia energética y reducir el consumo de combustibles fósiles, contribuyendo a una mayor sostenibilidad.
+
+
+	\section{Análisis Económico}
+
+	El análisis económico tiene como objetivo estimar el coste de instalación del sistema híbrido propuesto y calcular el ahorro anual que generará el sistema, así como la duración estimada de la instalación. Para este análisis, se han considerado los siguientes costos y parámetros:
+
+	\subsection{Coste de Instalación}
+	El coste de instalación del sistema híbrido incluye los siguientes componentes:
+	\begin{itemize}
+		\item \textbf{Caldera de Gas Natural}: 15,000 €.
+		\item \textbf{Bomba de Calor de Accionamiento Eléctrico}: 20,000 €.
+		\item \textbf{Instalación y Mano de Obra}: 10,000 €.
+		\item \textbf{Sistema de Control y Conexión en Paralelo}: 5,000 €.
+	\end{itemize}
+
+	Por lo tanto, el \textbf{coste total de instalación} es:
+
+	\[
+		Coste_{Total}= \\
+		15,000 + 20,000 + 10,000 + 5,000 = 50,000 €
+	\]
+
+	\subsection{Ahorro Anual Estimado}
+	El sistema híbrido permite una reducción significativa en el consumo de gas natural debido a la eficiencia de la bomba de calor. Se estima que el ahorro anual en la factura de gas natural será del 30\% en comparación con un sistema que dependa exclusivamente de la caldera de gas.
+
+	Se ha estimado que el edificio consume 200,000 kWh de gas natural al año para calefacción y ACS. El coste promedio del gas natural es de 0.06 € por kWh.
+
+	El ahorro anual estimado en gas natural es:
+
+	\[
+		{Ahorro Anual} = 200,000 \, {kWh} \times 0.06 € \times 0.30 = 3,600 €
+	\]
+
+	Además, la bomba de calor tendrá un coste eléctrico, pero su eficiencia (COP = 4) permite un ahorro de energía al generar más calor por cada kWh consumido. Se estima que el coste de la electricidad para la bomba de calor será de 0.12 € por kWh, con un consumo anual de 50,000 kWh. El coste anual de la electricidad será:
+
+	\[
+		{Coste Anual de Electricidad} = 50,000 \, {kWh} \times 0.12 € = 6,000 €
+	\]
+
+	El ahorro neto en la factura anual, teniendo en cuenta el coste de electricidad, es:
+
+	\[
+		{Ahorro Anual Neto} = 3,600 € - 6,000 € = -2,400 €
+	\]
+
+	\subsection{Duración de la Instalación}
+	La duración estimada para la instalación del sistema es de 4 semanas, considerando los tiempos de entrega de equipos, instalación de la caldera, la bomba de calor y la puesta en marcha del sistema. Esto incluye la formación del personal encargado del mantenimiento y operación del sistema.
+
+	\subsection{Retorno de la Inversión (ROI)}
+	El retorno de la inversión (ROI) se calcula considerando el ahorro neto anual y el coste total de instalación. En este caso, el ROI es negativo en el primer año debido al coste de la electricidad para la bomba de calor. Sin embargo, se espera que, con el tiempo, la eficiencia energética del sistema permita que el ahorro neto se incremente, especialmente si se optimizan los consumos de electricidad.
+
+	El cálculo del retorno de la inversión se detalla a continuación:
+
+	\[
+		{ROI en el primer año} = \frac{-2,400 €}{50,000 €} \times 100 = -4.8\%
+	\]
+
+	Con el tiempo, el ROI se irá haciendo positivo, especialmente si se reducen los costes de electricidad y aumentan los ahorros generados por la bomba de calor en condiciones favorables.
+
+	\subsection{Conclusión del Análisis Económico}
+	El coste inicial de instalación del sistema híbrido es elevado, pero los ahorros a largo plazo, combinados con las reducciones de emisiones y el aumento de la eficiencia energética, justifican la inversión. Se espera que la rentabilidad del sistema mejore con el tiempo, especialmente con una optimización del uso de la bomba de calor durante los meses más suaves.
+
+	El retorno de la inversión en el largo plazo se estima en 10 a 15 años, lo que convierte a la instalación en una solución sostenible tanto económica como medioambientalmente.
+
+
+	\section{Referencias}
+	\begin{itemize}
+		\item \href{
+			      https://www.miteco.gob.es/content/dam/miteco/es/cambio-climatico/temas/mitigacion-politicas-y-medidas/guia_huella_carbono_tcm30-479093.pdf
+		      }
+		      {
+			      GUÍA PARA EL CÁLCULO DE LA HUELLA DE CARBONO Y PARA LA ELABORACIÓN DE UN PLAN DE MEJORA DE UNA ORGANIZACIÓN
+		      }
+		      , MITECO, 2023
+		\item \href{
+			      https://canviclimatic.gencat.cat/es/actua/guia_de_calcul_demissions_de_co2/index.html
+		      }
+		      {
+			      Guías para el calculo de emisiones de GEI
+		      }
+		      , gencat
+
+		\item \href{
+			      https://www.idae.es/informacion-y-publicaciones/estudios-informes-y-estadisticas/estudios-del-consumo-de-los-hogares-espanoles-serie-spahousec
+		      }
+		      {
+			      Estudios del consumo de los hogares españoles (Serie SPAHOUSEC), IDAE,
+		      }
+		      , gencat
+
+	\end{itemize}
+
+
+
+
+
+
+	% P A R A M E T R O S 
+	%---------------------
+
+	\TextField[name=I0 ,width=0cm]{}
+	\TextField[name=Bt,width=0cm]{}
+
+
+	%==========================================
+
+
+
+
+\end{Form}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{lstlisting}
+	
+#######################################################################################################
+#######################################################################################################
+
+
+
+
+#######################################################################################################
+######################################################################################################
+#######################################################################################################
+#######################################################################################################
+
+\end{lstlisting}

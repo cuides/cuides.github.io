@@ -1,0 +1,6 @@
+from fastapi import APIRouter
+router = APIRouter()
+from .Bt400InstalacionesGeneradorasDeBajaTensión import router as Bt400InstalacionesGeneradorasDeBajaTensión_router
+router.include_router(Bt400InstalacionesGeneradorasDeBajaTensión_router, prefix='/Bt400InstalacionesGeneradorasDeBajaTensión', tags=['root - INSTALACIONES_ELÉCTRICAS_BT - RBT7_Instalaciones_Especiales'])
+from .Bt520InfraestructuraParaLaRecargaDeVehículosEléctricos import router as Bt520InfraestructuraParaLaRecargaDeVehículosEléctricos_router
+router.include_router(Bt520InfraestructuraParaLaRecargaDeVehículosEléctricos_router, prefix='/Bt520InfraestructuraParaLaRecargaDeVehículosEléctricos', tags=['root - INSTALACIONES_ELÉCTRICAS_BT - RBT7_Instalaciones_Especiales'])

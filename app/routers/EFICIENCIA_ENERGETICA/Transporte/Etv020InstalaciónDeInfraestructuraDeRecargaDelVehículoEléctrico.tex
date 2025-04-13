@@ -1,0 +1,193 @@
+\documentclass[10pt, a4paper, twoside, twocolumn]{article}
+\usepackage[top = 2cm, bottom = 2cm, left = 2cm, right = 2cm, asymmetric]{geometry} % Especificar los márgenes según la norma
+
+% Paquetes básicos
+\usepackage[spanish]{babel}    
+\usepackage[utf8]{inputenc}    
+\usepackage[T1]{fontenc}       
+\usepackage{geometry}          
+% \geometry{left=3cm, right=3cm, top=3cm, bottom=3cm}
+\usepackage{graphicx}          
+\usepackage[pdftex,pdfencoding=auto, colorlinks=true, linkcolor=black, citecolor=black, filecolor=black, urlcolor=black]{hyperref}
+\usepackage{fancyhdr}          
+\usepackage{titlesec}          
+\usepackage{tocloft}           
+\usepackage{booktabs}          % Tablas profesionales
+\usepackage{float} % Paquete necesario para usar la opción [H]
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{lipsum} % Para generar texto de ejemplo
+\usepackage{amsmath}
+
+% 
+
+\usepackage[spanish]{babel} % Para utilizar el idioma español y sus convenciones
+\usepackage{qrcode}            % Paquete para generar QR
+\let\OldTextField\TextField
+\renewcommand{\TextField}[2][]{%
+  \raisebox{-0.1ex}{\OldTextField[height=.95em,  bordercolor={1 1 1}, backgroundcolor={1 1 1},#1]{#2}}%
+}
+% Encabezado y pie de página
+\pagestyle{fancy}
+\fancyhead[L]{\textbf{Conversión de Coche de Gasolina a Eléctrico}}
+\fancyhead[R]{\thepage}
+\fancyfoot[C]{}
+
+% Configuración de títulos
+\titleformat{\section}{\large\bfseries}{\thesection.}{1em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{1em}{}
+
+\begin{document}
+\begin{Form}
+
+	% Portada
+	\begin{titlepage}
+		\centering
+		{\Large \textbf{INFORME TECNICO}} \\
+		\vspace{3cm}
+		{\huge \textbf{Conversión de Coche de Gasolina a Eléctrico}} \\
+		\vspace{3cm}
+		\fbox{{\Huge{TEC}}\textcolor{white}{\Huge\colorbox{black}{I}}}{\tiny I\hspace{0.30cm}N\hspace{0.30cm}G\hspace{0.30cm}E\hspace{0.30cm}N\hspace{0.30cm}I\hspace{0.30cm}E\hspace{0.30cm}R\hspace{0.30cm}I\hspace{0.30cm}A} \\
+		\vspace{4cm}
+		\begin{center}
+			\begin{tabular*}{0.5\textwidth}{@{\extracolsep{\fill}}  p{0.3\textwidth} p{0.3\textwidth} @{}}
+				\textbf{Referencia:} 			&  IAF010  \\
+				% \textbf{Ubicación:} 			&  \TextField[name=Ubicación,width=5cm]{}  \\
+				\textbf{Ahorro [kWh/a]:} 		& pp.ahorroanualdeenergiakwh  \\
+				\textbf{Autor:} 				&  DocTec  \\
+				\textbf{Entidad:}				&  TEC Ingeniería  \\
+			\end{tabular*}
+		\end{center}
+		\vfill
+		{\large 	\today  } \\
+
+		% QR en la esquina inferior derecha
+		\begin{flushright}
+			\qrcode{https://doctec.blog//} \\
+			https://doctec.blog//
+		\end{flushright}
+	\end{titlepage}
+
+	% Índice
+	\tableofcontents
+
+	\noindent\hrulefill\ + \hrulefill
+
+
+	\section{Introducción}
+	Este informe analiza la viabilidad técnica y económica de convertir un coche de gasolina a un vehículo eléctrico, considerando los costos de conversión y el ahorro en combustible a lo largo del tiempo.
+
+	\section{Consumo y Costes de Combustible}
+	Se considera un coche de gasolina con un consumo medio de 6.5 L/100 km y un kilometraje anual de 15,000 km. Con un precio promedio de 1.75 €/L, el gasto anual en gasolina es:
+	\begin{equation}
+		C_{gasolina} = 6.5 \times \frac{15,000}{100} \times 1.75 \approx 1,706 \,\text{€}
+	\end{equation}
+
+	Para un coche eléctrico con un consumo de 17 kWh/100 km y un costo de electricidad de 0.20 €/kWh, el gasto anual en electricidad es:
+	\begin{equation}
+		C_{eléctrico} = 17 \times \frac{15,000}{100} \times 0.20 \approx 510 \,\text{€}
+	\end{equation}
+
+	\section{Coste de Conversión}
+	El costo de conversión incluye:
+	\begin{itemize}
+		\item Batería (40 kWh): 6,000 €
+		\item Motor eléctrico y controlador: 3,000 €
+		\item Sistema de carga y cableado: 1,500 €
+		\item Mano de obra e instalación: 2,500 €
+	\end{itemize}
+	El costo total estimado de conversión es:
+	\begin{equation}
+		C_{conversión} = 6,000 + 3,000 + 1,500 + 2,500 = 13,000 \,\text{€}
+	\end{equation}
+
+	\section{Ahorro y Retorno de la Inversión}
+	El ahorro anual en combustible es:
+	\begin{equation}
+		A = 1,706 - 510 = 1,196 \,\text{€}
+	\end{equation}
+
+	El período de amortización de la conversión es:
+	\begin{equation}
+		T = \frac{13,000}{1,196} \approx 10.9 \text{ años}
+	\end{equation}
+
+	\section{Conclusión}
+	La conversión de un coche de gasolina a eléctrico representa una inversión inicial significativa de 13,000 €, con un ahorro anual de 1,196 €. El período de amortización es de aproximadamente 11 años, tras los cuales el usuario comenzará a obtener beneficios económicos adicionales, además de reducir su impacto ambiental.
+
+
+	\section{Referencias}
+	\begin{itemize}
+		\item \href{
+			      https://icaen.gencat.cat/es/detalls/publicacio/Num.-9-Installacio-dinfraestructura-de-recarrega-del-vehicle-electric
+
+		      }
+		      {
+			      Instalación de infraestructura de recarga del vehículo eléctrico
+		      }
+		      , ICAEN,
+		\item \href{
+			https://eurospor100km.energia.gob.es/Paginas/Index.aspx
+
+		      }
+		      {
+				Información comparativa sobre el coste de los combustibles de automoción en €/100km
+		      }
+		      , ICAEN,
+
+
+	\end{itemize}
+
+
+
+
+
+	% \graphicspath{{./docs/INFORMES_TECNICOS/EFICIENCIA_ENERGETICA/}} % Define el directorio base
+	% \includepdf[pages=-]{frv010/cc.pdf} % Importa todas las páginas
+
+
+
+
+
+	% P A R A M E T R O S 
+	%---------------------
+
+	\TextField[name=I0 ,width=0cm]{}
+	\TextField[name=Bt,width=0cm]{}
+
+
+	%==========================================
+
+
+
+
+\end{Form}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{lstlisting}
+	
+#######################################################################################################
+#######################################################################################################
+
+
+
+
+#######################################################################################################
+######################################################################################################
+#######################################################################################################
+#######################################################################################################
+
+\end{lstlisting}

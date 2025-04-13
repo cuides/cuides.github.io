@@ -1,0 +1,6 @@
+from fastapi import APIRouter
+router = APIRouter()
+from .Vea010CambioDeCocheDeGasolinaAUnVehículoEléctrico import router as Vea010CambioDeCocheDeGasolinaAUnVehículoEléctrico_router
+router.include_router(Vea010CambioDeCocheDeGasolinaAUnVehículoEléctrico_router, prefix='/Vea010CambioDeCocheDeGasolinaAUnVehículoEléctrico', tags=['root - EFICIENCIA_ENERGETICA - Transporte'])
+from .Etv020InstalaciónDeInfraestructuraDeRecargaDelVehículoEléctrico import router as Etv020InstalaciónDeInfraestructuraDeRecargaDelVehículoEléctrico_router
+router.include_router(Etv020InstalaciónDeInfraestructuraDeRecargaDelVehículoEléctrico_router, prefix='/Etv020InstalaciónDeInfraestructuraDeRecargaDelVehículoEléctrico', tags=['root - EFICIENCIA_ENERGETICA - Transporte'])

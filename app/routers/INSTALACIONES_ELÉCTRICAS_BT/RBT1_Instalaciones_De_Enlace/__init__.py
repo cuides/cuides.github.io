@@ -1,0 +1,4 @@
+from fastapi import APIRouter
+router = APIRouter()
+from .Bt100PrevisiónDeCargasParaSuministrosEnBajaTensión import router as Bt100PrevisiónDeCargasParaSuministrosEnBajaTensión_router
+router.include_router(Bt100PrevisiónDeCargasParaSuministrosEnBajaTensión_router, prefix='/Bt100PrevisiónDeCargasParaSuministrosEnBajaTensión', tags=['root - INSTALACIONES_ELÉCTRICAS_BT - RBT1_Instalaciones_De_Enlace'])
